@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Library: array of book objects
+        let library = [
+            { title: "1984", author: "George Orwell", year: 1949, available: true },
+            { title: "The Alchemist", author: "Paulo Coelho", year: 1988, available: true },
+            { title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937, available: false }
+        ];
+    
+ 
+        function displayAvailableBooks() {
+            console.log("📚 Available Books:");
+            for (let book of library) {
+                if (book.available) {
+                    console.log(`- ${book.title} by ${book.author} (${book.year})`);
+                }
+            }
+        }
+    
+
+        function borrowBook(title) {
+            for (let book of library) {
+                if (book.title === title && book.available) {
+                    book.available = false;
+                    console.log(`✅ You borrowed "${title}".`);
+                    return;
+                }
+            }
+            console.log(`❌ Book "${title}" is not available.`);
+        }
+    
+        
+        function addBook(title, author, year) {
+            library.push({ title, author, year, available: true });
+            console.log(`➕ Book "${title}" added to the library.`);
+        }
+    
+        
+        displayAvailableBooks();
+        borrowBook("The Alchemist");
+        addBook("Clean Code", "Robert C. Martin", 2008);
+        displayAvailableBooks();
+    </script>
+    
+</body>
+</html>
