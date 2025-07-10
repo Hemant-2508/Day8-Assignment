@@ -1,53 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Tracker</title>
 </head>
 <body>
-    <script>
-        // Library: array of book objects
-        let library = [
-            { title: "1984", author: "George Orwell", year: 1949, available: true },
-            { title: "The Alchemist", author: "Paulo Coelho", year: 1988, available: true },
-            { title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937, available: false }
-        ];
-    
- 
-        function displayAvailableBooks() {
-            console.log("📚 Available Books:");
-            for (let book of library) {
-                if (book.available) {
-                    console.log(`- ${book.title} by ${book.author} (${book.year})`);
-                }
-            }
-        }
-    
+  <script>
+    const bookShelf = [
+      { title: "1984", writer: "George Orwell", published: 1949, inStock: true },
+      { title: "The Alchemist", writer: "Paulo Coelho", published: 1988, inStock: true },
+      { title: "The Hobbit", writer: "J.R.R. Tolkien", published: 1937, inStock: false }
+    ];
 
-        function borrowBook(title) {
-            for (let book of library) {
-                if (book.title === title && book.available) {
-                    book.available = false;
-                    console.log(`✅ You borrowed "${title}".`);
-                    return;
-                }
-            }
-            console.log(`❌ Book "${title}" is not available.`);
+    function showInStockBooks() {
+      console.log("📘 In-Stock Books:");
+      for (let item of bookShelf) {
+        if (item.inStock) {
+          console.log(`- ${item.title} by ${item.writer} (${item.published})`);
         }
-    
-        
-        function addBook(title, author, year) {
-            library.push({ title, author, year, available: true });
-            console.log(`➕ Book "${title}" added to the library.`);
+      }
+    }
+
+    function takeBook(bookName) {
+      for (let item of bookShelf) {
+        if (item.title === bookName && item.inStock) {
+          item.inStock = false;
+          console.log(`✔️ You have taken "${bookName}".`);
+          return;
         }
-    
-        
-        displayAvailableBooks();
-        borrowBook("The Alchemist");
-        addBook("Clean Code", "Robert C. Martin", 2008);
-        displayAvailableBooks();
-    </script>
-    
+      }
+      console.log(`❌ "${bookName}" is currently unavailable.`);
+    }
+
+    function insertBook(name, creator, yearReleased) {
+      bookShelf.push({ title: name, writer: creator, published: yearReleased, inStock: true });
+      console.log(`➕ "${name}" has been added.`);
+    }
+
+    showInStockBooks();
+    takeBook("The Alchemist");
+    insertBook("Clean Code", "Robert C. Martin", 2008);
+    showInStockBooks();
+  </script>
 </body>
 </html>
