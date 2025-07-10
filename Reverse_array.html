@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reverse Array</title>
 </head>
 <body>
-    <script>
-        let arr = [1, 2, 3, 4, 5];
-let newarr = [];
-while (arr.length > 0) {
-    newarr.push(arr.pop());
-}
-console.log(newarr); // [5, 4, 3, 2, 1]
+  <script>
+    const original = [1, 2, 3, 4, 5];
+    const reversed = [];
 
-        
+    while (original.length) {
+      reversed.push(original.pop());
+    }
 
-    </script>
+    console.log(reversed); 
+  </script>
 </body>
 </html>
