@@ -1,45 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Record</title>
 </head>
 <body>
-    <script>
-      
-        let student = {
-          name: "Rahul",
-          age: 20,
-          grade: "B",
-          subjects: ["Math", "English"]
-        };
-      
+  <script>
+    const profile = {
+      fullName: "Rahul",
+      currentAge: 20,
+      currentGrade: "B",
+      enrolledSubjects: ["Math", "English"]
+    };
 
-        function addSubject(subject) {
-          student.subjects.push(subject);
-        }
-      
+    function appendSubject(newSub) {
+      profile.enrolledSubjects.push(newSub);
+    }
 
-        function updateGrade(newGrade) {
-          student.grade = newGrade;
-        }
-      
+    function changeGrade(updatedGrade) {
+      profile.currentGrade = updatedGrade;
+    }
 
-        function showInfo() {
-          console.log("Name: " + student.name);
-          console.log("Age: " + student.age);
-          console.log("Grade: " + student.grade);
-          console.log("Subjects: " + student.subjects.join(", "));
-        }
-      
-        
-        showInfo();
-        addSubject("Science");
-        updateGrade("A");
-        showInfo();
-      </script>
-    
-    
+    function printDetails() {
+      console.log("Name: " + profile.fullName);
+      console.log("Age: " + profile.currentAge);
+      console.log("Grade: " + profile.currentGrade);
+      console.log("Subjects: " + profile.enrolledSubjects.join(", "));
+    }
+
+    printDetails();
+    appendSubject("Science");
+    changeGrade("A");
+    printDetails();
+  </script>
 </body>
 </html>
